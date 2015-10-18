@@ -10,3 +10,6 @@ This project is a part of my soon to be released online courses on http://appsto
 
 # Acknowledgements
 The "star icons" used are copyright by Icons8.com (www.icons8.com). In case you'd like to use these icons in your app, please make sure to acknowledge the origin of the icons as described here: https://icons8.com/license
+
+# License
+Feel free to use this source in any of your projects. If you'd like to acknowledge the author, feel free to link to www.caloon.co or www.github.com/caloon
