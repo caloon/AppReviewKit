@@ -12,8 +12,6 @@
 		D2CCC3F51BD3AB6C009ECA51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CCC3F31BD3AB6C009ECA51 /* Main.storyboard */; };
 		D2CCC3F71BD3AB6C009ECA51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2CCC3F61BD3AB6C009ECA51 /* Assets.xcassets */; };
 		D2CCC3FA1BD3AB6C009ECA51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CCC3F81BD3AB6C009ECA51 /* LaunchScreen.storyboard */; };
-		D2CCC4051BD3AB6C009ECA51 /* AppReviewKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCC4041BD3AB6C009ECA51 /* AppReviewKitTests.swift */; };
-		D2CCC4101BD3AB6D009ECA51 /* AppReviewKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCC40F1BD3AB6D009ECA51 /* AppReviewKitUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +40,7 @@
 		D2CCC3F91BD3AB6C009ECA51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2CCC3FB1BD3AB6C009ECA51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2CCC4001BD3AB6C009ECA51 /* AppReviewKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppReviewKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2CCC4041BD3AB6C009ECA51 /* AppReviewKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewKitTests.swift; sourceTree = "<group>"; };
-		D2CCC4061BD3AB6C009ECA51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2CCC40B1BD3AB6D009ECA51 /* AppReviewKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppReviewKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2CCC40F1BD3AB6D009ECA51 /* AppReviewKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewKitUITests.swift; sourceTree = "<group>"; };
-		D2CCC4111BD3AB6D009ECA51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				D2CCC3EE1BD3AB6C009ECA51 /* AppReviewKit */,
-				D2CCC4031BD3AB6C009ECA51 /* AppReviewKitTests */,
-				D2CCC40E1BD3AB6D009ECA51 /* AppReviewKitUITests */,
 				D2CCC3ED1BD3AB6C009ECA51 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,24 +97,6 @@
 				D2CCC3FB1BD3AB6C009ECA51 /* Info.plist */,
 			);
 			path = AppReviewKit;
-			sourceTree = "<group>";
-		};
-		D2CCC4031BD3AB6C009ECA51 /* AppReviewKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				D2CCC4041BD3AB6C009ECA51 /* AppReviewKitTests.swift */,
-				D2CCC4061BD3AB6C009ECA51 /* Info.plist */,
-			);
-			path = AppReviewKitTests;
-			sourceTree = "<group>";
-		};
-		D2CCC40E1BD3AB6D009ECA51 /* AppReviewKitUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D2CCC40F1BD3AB6D009ECA51 /* AppReviewKitUITests.swift */,
-				D2CCC4111BD3AB6D009ECA51 /* Info.plist */,
-			);
-			path = AppReviewKitUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +238,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2CCC4051BD3AB6C009ECA51 /* AppReviewKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +245,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2CCC4101BD3AB6D009ECA51 /* AppReviewKitUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +374,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.caloon.AppReviewKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -413,6 +386,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.caloon.AppReviewKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
