@@ -2,7 +2,12 @@
 
 During the past years I realized that "traditional" prompts for rating apps do no longer work. App users are used to these prompts and close them immediately.
 
-Thus, I developed an alternative solution to prompt your users to review or rate your app on the App Store. 
+Thus, I developed an alternative solution to prompt your users to review or rate your app on the App Store. It does the following:
+- display an app rating view (5 outlined stars) above the app's settings
+- once the user taps one of the stars, the stars will be replaced by outlined ones and a UIAlert prompt starts
+- if the user chooses 3-5 stars, the user will be asked to review, otherwise the user will be asked for feedback via email
+- the next time the app's settings are loaded, the rating view will no longer be displayed
+I believe this solution is better than generic UIAlert prompts because they do not interrupt the user's experience, instead the user him/herself decides to rate the app (pull instead of push).
 
 Live Demo: soon
 
