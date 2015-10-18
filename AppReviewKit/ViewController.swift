@@ -18,8 +18,6 @@ class ViewController: UITableViewController, MFMailComposeViewControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "kUserDidRateApp")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
