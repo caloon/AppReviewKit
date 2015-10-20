@@ -15,8 +15,51 @@ I believe this solution is better than generic UIAlert prompts because they do n
 
 This project is a part of my soon to be released online courses on http://appstoreboosting.teachable.com/courses/app-store-reviews. The course will be for free. You can already enroll, please not though that I am still working on the content. If you enroll the course, you will be notified via email as soon as it is ready.
 
-# Acknowledgements
-The "star icons" used are copyright by Icons8.com (www.icons8.com). In case you'd like to use these icons in your app, please make sure to acknowledge the origin of the icons as described here: https://icons8.com/license
+## Usage
 
-# License
+### Install
+- Copy the AppReviewKit.swift file into your project
+- Set the ReviewViewDelegate
+
+### Customization
+#### Styles
+tbd - image
+
+#### Further Customization
+```
+reviewView.textColor = UIColor.blackColor()
+reviewView.font = UIFont.systemFontOfSize(15)
+```
+
+### Delegate
+```
+func userDidRespond(response: ReviewViewResponse!) {
+  // advice: log event with Flurry, Fabric, etc.
+  
+  // ReviewViewResponses: 
+  // .Satisfied / .Dissatisfied (ReviewViewStyle.Default)
+  // .OneStar, .TwoStars, etc. (ReviewViewStyle.Stars)
+}
+
+func userDidContactSupport(response: Bool?) {
+  if response == true {
+    // open Support Contact sheet
+    // fade ReviewView out
+  } else {
+    // fade ReviewView out
+  }
+}
+
+ func userDidReviewApp(response: Bool?) {
+  if response == true {
+    // open App Store
+    // fade ReviewView out
+  } else {
+    // fade ReviewView out
+  }
+}
+```
+
+
+## License
 Feel free to use this source in any of your projects. If you'd like to acknowledge the author, feel free to link to www.caloon.co or www.github.com/caloon
