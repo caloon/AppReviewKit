@@ -63,7 +63,8 @@ func userDidContactSupport(response: Bool?) {
 ## Contribution
 - If you'd like to contribute please submit a pull request via GitHub. 
 - Speaking a language that is currently not supported by AppReviewKit? Provide us your Localizations ;)
-- Like AppReviewKit? Donate us a beer ;-) [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NVFEEVXQSSM9S)
+
+Like AppReviewKit? Get us a beer ;-) [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NVFEEVXQSSM9S)
 
 ## License
 Feel free to use this source in any of your projects. If you'd like to acknowledge the author, feel free to link to www.caloon.co or www.github.com/caloon
