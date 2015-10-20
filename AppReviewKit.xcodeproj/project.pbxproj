@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D23A06F91BD5BA3B00BCB4D6 /* AppReviewKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23A06F81BD5BA3B00BCB4D6 /* AppReviewKit.swift */; settings = {ASSET_TAGS = (); }; };
 		D2CCC3F01BD3AB6C009ECA51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCC3EF1BD3AB6C009ECA51 /* AppDelegate.swift */; };
 		D2CCC3F21BD3AB6C009ECA51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCC3F11BD3AB6C009ECA51 /* ViewController.swift */; };
 		D2CCC3F51BD3AB6C009ECA51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CCC3F31BD3AB6C009ECA51 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D23A06F81BD5BA3B00BCB4D6 /* AppReviewKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReviewKit.swift; sourceTree = "<group>"; };
 		D2CCC3EC1BD3AB6C009ECA51 /* AppReviewKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppReviewKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CCC3EF1BD3AB6C009ECA51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CCC3F11BD3AB6C009ECA51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				D2CCC3EF1BD3AB6C009ECA51 /* AppDelegate.swift */,
 				D2CCC3F11BD3AB6C009ECA51 /* ViewController.swift */,
+				D23A06F81BD5BA3B00BCB4D6 /* AppReviewKit.swift */,
 				D2CCC3F31BD3AB6C009ECA51 /* Main.storyboard */,
 				D2CCC3F61BD3AB6C009ECA51 /* Assets.xcassets */,
 				D2CCC3F81BD3AB6C009ECA51 /* LaunchScreen.storyboard */,
@@ -231,6 +234,7 @@
 			files = (
 				D2CCC3F21BD3AB6C009ECA51 /* ViewController.swift in Sources */,
 				D2CCC3F01BD3AB6C009ECA51 /* AppDelegate.swift in Sources */,
+				D23A06F91BD5BA3B00BCB4D6 /* AppReviewKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +461,7 @@
 				D2CCC4161BD3AB6D009ECA51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2CCC4171BD3AB6D009ECA51 /* Build configuration list for PBXNativeTarget "AppReviewKitTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +470,7 @@
 				D2CCC4191BD3AB6D009ECA51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2CCC41A1BD3AB6D009ECA51 /* Build configuration list for PBXNativeTarget "AppReviewKitUITests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +479,7 @@
 				D2CCC41C1BD3AB6D009ECA51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

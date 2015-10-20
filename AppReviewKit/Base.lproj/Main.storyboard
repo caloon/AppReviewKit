@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="PWH-Zy-mrO">
             <objects>
                 <tableViewController id="asm-hs-8UQ" customClass="ViewController" customModule="AppReviewKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="asm-hs-8UQ" id="7Um-o3-GVI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="hQs-8w-8IP"/>
+                    <navigationItem key="navigationItem" title="Settings" id="hQs-8w-8IP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZV-dh-tqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
