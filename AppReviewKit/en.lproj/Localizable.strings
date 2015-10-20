@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  AppReviewKit
+
+  Created by Josef Moser on 20/10/15.
+  Copyright © 2015 Josef Moser. All rights reserved.
+*/
+
+
+"Do you enjoy using" = "Do you enjoy using";
+"Not really" = "Not really";
+"Yes, indeed" = "Yes, indeed";
+"Do you mind telling us what we do wrong?" = "Do you mind telling us what we do wrong?";
+"Would you rate us on the App Store, then?" = "Would you rate us on the App Store, then?";
+"No, thanks" = "No, thanks";
+"Ok, sure" = "Ok, sure";

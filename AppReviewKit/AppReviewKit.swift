@@ -34,7 +34,6 @@ class ReviewView: UIView {
     
     var textColor = UIColor.whiteColor()
     var font = UIFont.systemFontOfSize(15)
-    var appID = "284882215" // facebook App ID
     var delegate: ReviewViewDelegate?
     // var backgroundColor inherited from UIView
     
@@ -64,7 +63,7 @@ class ReviewView: UIView {
     
     func initDefaultView() {
         // title label
-        self.titleLabel.frame = CGRectMake(0, (self.frame.height / 2) - 40, self.frame.width, 20)
+        self.titleLabel.frame = CGRectMake(0, (self.frame.height / 2) - 35, self.frame.width, 20)
         self.titleLabel.font = self.font
         self.titleLabel.textAlignment = .Center
         self.titleLabel.textColor = self.textColor
@@ -73,7 +72,7 @@ class ReviewView: UIView {
         self.titleLabel.text = "\(titleString) \(bundleName)?"
         
         // create review button container
-        self.reviewButtonContainer.frame = CGRectMake((self.frame.size.width - 220) / 2 - 5, (self.frame.height / 2), 220, 30)
+        self.reviewButtonContainer.frame = CGRectMake((self.frame.size.width - 220) / 2, (self.frame.height / 2), 220, 30)
         for var i = 0; i < 2; i++ {
             let button = UIButton(type: .Custom)
             let x = i * 120
@@ -132,7 +131,6 @@ class ReviewView: UIView {
         self.addSubview(self.reviewButtonContainer)
     }
     
-    
     // ----------------------------------------------------------------
     // MARK: - IBActions
     @IBAction func didTapResponseButton(sender: UIButton) {
@@ -143,8 +141,10 @@ class ReviewView: UIView {
             switch sender.tag {
             case 0:
                 self.delegate?.userDidRespond(.Dissatisfied)
+                self.fadeButtonContainerView("support")
             default:
                 self.delegate?.userDidRespond(.Satisfied)
+                self.fadeButtonContainerView("rate")
             }
         } else if self.style == .Stars {
             
@@ -168,46 +168,96 @@ class ReviewView: UIView {
             switch sender.tag {
             case 0:
                 self.delegate?.userDidRespond(.OneStar)
+                self.fadeButtonContainerView("support")
             case 1:
                 self.delegate?.userDidRespond(.TwoStars)
+                self.fadeButtonContainerView("support")
             case 2:
                 self.delegate?.userDidRespond(.ThreeStars)
+                self.fadeButtonContainerView("rate")
             case 3:
                 self.delegate?.userDidRespond(.FourStars)
+                self.fadeButtonContainerView("rate")
             default:
                 self.delegate?.userDidRespond(.FiveStars)
+                self.fadeButtonContainerView("rate")
             }
         }
-        
-        
-        // create rating alert
-        let ratingAlert = UIAlertController(title: NSLocalizedString("Yippie!", comment: ""), message: NSLocalizedString("We're glad that you like <App Name>. Do you mind writing us a short review on the App Store?", comment: ""), preferredStyle: UIAlertControllerStyle.Alert) // tbd - app name
-        ratingAlert.addAction(UIAlertAction(title: NSLocalizedString("No, thanks", comment: ""), style: .Default, handler: nil))
-        let ratingAction: UIAlertAction = UIAlertAction(title: "Yes, sure", style: .Cancel) { action -> Void in
-            let reviewURL = NSString(format: "itms-apps://itunes.apple.com/app/id<APP ID>") // tbd - app id
-            UIApplication.sharedApplication().openURL(NSURL(string: reviewURL as String)!)
-        }
-        ratingAlert.addAction(ratingAction)
-        
-//        // create alert to send feedback if the user does not like the app
-//        let feedbackAlert = UIAlertController(title: NSLocalizedString("Oh!", comment: ""), message: NSLocalizedString("We're sad that you don't like <App Name>. Do you mind sharing with us what we could do better?", comment: ""), preferredStyle: UIAlertControllerStyle.Alert) // tbd - app name
-//        feedbackAlert.addAction(UIAlertAction(title: NSLocalizedString("No, thanks", comment: ""), style: .Default, handler: nil))
-//        let feedbackAction: UIAlertAction = UIAlertAction(title: "Yes, sure", style: .Cancel) { action -> Void in
-//            let mc = MFMailComposeViewController()
-//            mc.mailComposeDelegate = self
-//            mc.setSubject(NSLocalizedString("Feedback", comment: ""))
-//            mc.setToRecipients(["your@email.com"]) // tbd - support email address
-//            self.presentViewController(mc, animated: true, completion: nil)
-//        }
-//        feedbackAlert.addAction(feedbackAction)
-//        
-//        if sender.tag > 2 {
-//            self.presentViewController(ratingAlert, animated: true, completion: nil)
-//        } else {
-//            self.presentViewController(feedbackAlert, animated: true, completion: nil)
-//        }
     }
-
+    
+    @IBAction func didTapSupportButton(sender: UIButton) {
+        if sender.tag == 0 {
+            self.delegate?.userDidContactSupport(false)
+        } else if sender.tag == 1 {
+            self.delegate?.userDidContactSupport(true)
+        }
+    }
+    
+    @IBAction func didTapRateButton(sender: UIButton) {
+        if sender.tag == 0 {
+            self.delegate?.userDidReviewApp(false)
+        } else if sender.tag == 1 {
+            self.delegate?.userDidReviewApp(true)
+        }
+    }
+    
+    // ----------------------------------------------------------------
+    // MARK: - Methods
+    func fadeButtonContainerView(to: String) {
+        
+        // transition style
+        let transition = CATransition()
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionFade
+        transition.duration = 0.75
+        
+        // animate title label
+        self.titleLabel.layer.addAnimation(transition, forKey: kCATransitionFade)
+        if to == "support" {
+            self.titleLabel.text = NSLocalizedString("Do you mind telling us what we do wrong?", comment: "")
+        } else if to == "rate" {
+            self.titleLabel.text = NSLocalizedString("Would you rate us on the App Store, then?", comment: "")
+        }
+        
+        self.titleLabel.layer.removeAnimationForKey(kCATransitionFade)
+        
+        // animate review button container
+        self.reviewButtonContainer.layer.addAnimation(transition, forKey: kCATransitionFade)
+        for btn in self.reviewButtonContainer.subviews {
+            btn.removeFromSuperview()
+        }
+        for var i = 0; i < 2; i++ {
+            let button = UIButton(type: .Custom)
+            let x = i * 120
+            button.frame = CGRectMake(CGFloat(x), 0, 100, 30)
+            
+            if i == 0 {
+                button.layer.backgroundColor = self.backgroundColor!.CGColor
+                button.layer.borderColor = self.textColor.CGColor
+                button.setTitleColor(self.textColor, forState: .Normal)
+                button.setTitle(NSLocalizedString("No, thanks", comment: ""), forState: .Normal)
+            } else if i == 1 {
+                button.layer.backgroundColor = self.textColor.CGColor
+                button.layer.borderColor = self.backgroundColor?.CGColor
+                button.setTitleColor(self.backgroundColor, forState: .Normal)
+                button.setTitle(NSLocalizedString("Ok, sure", comment: ""), forState: .Normal)
+            }
+            
+            button.layer.cornerRadius = 5
+            button.layer.borderWidth = 1
+            button.titleLabel?.font = self.font
+            
+            button.tag = i
+            if to == "support" {
+                button.addTarget(self, action: "didTapSupportButton:", forControlEvents: .TouchUpInside)
+            } else if to == "rate" {
+                button.addTarget(self, action: "didTapRateButton:", forControlEvents: .TouchUpInside)
+            }
+            
+            self.reviewButtonContainer.addSubview(button)
+        }
+        self.reviewButtonContainer.layer.removeAnimationForKey(kCATransitionFade)
+    }
     
     // ----------------------------------------------------------------
     // MARK: - MFMailComposeViewControllerDelegate

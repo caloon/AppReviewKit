@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, ReviewViewDelegate {
 
     var kUserDidRateApp = NSUserDefaults.standardUserDefaults().boolForKey("kUserDidRateAp")
     
@@ -70,12 +70,7 @@ class ViewController: UITableViewController {
             return headerView
         } else {
             let reviewView = ReviewView(frame: CGRectMake(0, 0, self.view.frame.size.width, 165), style: .Default)
-            
-            label.frame = CGRectMake(8 * UIScreen.mainScreen().scale, 140, self.view.frame.width - 8 * UIScreen.mainScreen().scale, 20)
-            label.text = NSLocalizedString("Settings", comment: "").uppercaseString
-            
-            reviewView.addSubview(label)
-            
+            reviewView.delegate = self
             return reviewView
         }
     }
@@ -100,5 +95,28 @@ class ViewController: UITableViewController {
     
     }
     
+    
+    // ---------------------------------------------------------------------------------------------------------
+    // MARK: - Table view delegate
+    
+    func userDidRespond(response: ReviewViewResponse!) {
+        // advice: log event with Flurry, Fabric, etc.
+    }
+    
+    func userDidContactSupport(response: Bool?) {
+        if response == true {
+            // open Support Contact sheet
+        } else {
+            // fade ReviewView out
+        }
+    }
+    
+    func userDidReviewApp(response: Bool?) {
+        if response == true {
+            // open App Store
+        } else {
+            // fade ReviewView out
+        }
+    }
     
 }
