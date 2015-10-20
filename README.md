@@ -17,21 +17,21 @@ This project is a part of my soon to be released online courses on http://appsto
 
 ## Usage
 
-### Install
+#### Install
 - Copy the AppReviewKit.swift file into your project
 - Set the ReviewViewDelegate
 
-### Customization
-#### Styles
+#### Customization
+##### Styles
 tbd - image
 
-#### Further Customization
+##### Further Customization
 ```
 reviewView.textColor = UIColor.blackColor()
 reviewView.font = UIFont.systemFontOfSize(15)
 ```
 
-### Delegate
+#### Delegate
 ```
 func userDidRespond(response: ReviewViewResponse!) {
   // advice: log event with Flurry, Fabric, etc.
@@ -60,6 +60,11 @@ func userDidContactSupport(response: Bool?) {
 }
 ```
 
+## Contribution
+If you'd like to contribute please submit a pull request via GitHub. 
+Speaking a language that is currently not supported by AppReviewKit? Provide us your Localizations ;)
+
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NVFEEVXQSSM9S)
 
 ## License
 Feel free to use this source in any of your projects. If you'd like to acknowledge the author, feel free to link to www.caloon.co or www.github.com/caloon
