@@ -1,16 +1,20 @@
 # AppReviewKit
 
-During the past years I realized that "traditional" prompts for rating apps do no longer work. App users are used to these prompts and close them immediately. I believe this solution is better than generic UIAlert prompts because they do not interrupt the user's experience, instead the user him/herself decides to rate the app (pull instead of push).
+During the past years I realized that "traditional" prompts (e.g. Appirater) for rating apps do no longer work. The "conversion rates" for these methods are nowadayy nearly at nil.
+
+The following is my alternate solution. It is a subclass of UIView which can basically be put anywhere in your app (e.g. on top of the App Settings). I believe this solution is better, because it does not interrupt the user's experience, instead the user him/herself decides to give feedback (pull instead of push).
 
 ![alt tag](http://s14.postimg.org/o2y1jl3sx/App_Review_Kit_Actions_Sketch.png)
 
-This project is a part of my soon to be released online courses on http://appstoreboosting.teachable.com/courses/app-store-reviews. The course will be for free. You can already enroll, please note though that I am still working on the content. If you enroll the course, you will be notified via email as soon as it is ready.
+This project is a part of my soon to be released online courses on App Store Optimization and Online Marketing for developers. (The part on app ratings will be free: http://appstoreboosting.teachable.com/courses/app-store-reviews.) You can already enroll, please note though that I am still working on the content. If you enroll the course, you will be notified via email as soon as it's ready.
 
 ## Usage
 
 #### Install
-- Copy the AppReviewKit.swift file into your project
-- Set the ReviewViewDelegate
+- Copy the AppReviewKit.swift, Localizable.strings and Image files into your project
+- Drop in the ReviewView anywhere in your app (please note - it requires about 100pt in height)
+- Set the ReviewViewDelegate and implement the delegate methods
+- All set!
 
 #### Customization
 ##### Styles
