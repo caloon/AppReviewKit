@@ -4,7 +4,7 @@ During the past years I realized that "traditional" prompts for rating apps do n
 
 ![alt tag](http://s14.postimg.org/o2y1jl3sx/App_Review_Kit_Actions_Sketch.png)
 
-This project is a part of my soon to be released online courses on http://appstoreboosting.teachable.com/courses/app-store-reviews. The course will be for free. You can already enroll, please not though that I am still working on the content. If you enroll the course, you will be notified via email as soon as it is ready.
+This project is a part of my soon to be released online courses on http://appstoreboosting.teachable.com/courses/app-store-reviews. The course will be for free. You can already enroll, please note though that I am still working on the content. If you enroll the course, you will be notified via email as soon as it is ready.
 
 ## Usage
 
@@ -20,6 +20,7 @@ This project is a part of my soon to be released online courses on http://appsto
 ##### Further Customization
 ```
 reviewView.textColor = UIColor.blackColor()
+reviewView.backgroundColor = UIColor.whiteColor()
 reviewView.font = UIFont.systemFontOfSize(15)
 ```
 
