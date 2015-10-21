@@ -13,7 +13,13 @@ This project is a part of my soon to be released online courses on App Store Opt
 #### Install
 - Copy the AppReviewKit.swift, Localizable.strings and Image files into your project
 - Drop in the ReviewView anywhere in your app (please note - it requires about 100pt in height)
+  ```
+  let reviewView = ReviewView(frame: yourFrame, style: .Default)
+  ```
 - Set the ReviewViewDelegate and implement the delegate methods
+  ```
+  reviewView.delegate = self
+  ```
 - All set!
 
 #### Customization
