@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class ViewController: UIViewController, ReviewViewDelegate {
+class ViewController: UIViewController, ReviewViewDelegate, UIAlertViewDelegate {
     
     // ---------------------------------------------------------------------------------------------------------
     // MARK: - VC Lifecycle
@@ -19,7 +19,7 @@ class ViewController: UIViewController, ReviewViewDelegate {
         self.view.backgroundColor = UIColor.whiteColor()
         
         // review view
-        let reviewView = ReviewView(frame: CGRectMake(0, 64, self.view.frame.size.width, 165), style: .Stars)
+        let reviewView = ReviewView(frame: CGRectMake(0, 64, self.view.frame.size.width, 165), style: .Default)
         reviewView.delegate = self
         self.view.addSubview(reviewView)
     }
@@ -38,6 +38,11 @@ class ViewController: UIViewController, ReviewViewDelegate {
     func userDidContactSupport(response: Bool?) {
         if response == true {
             // open Support Contact sheet
+            let alert = UIAlertController(title: "Alert", message: "Open Support Contact sheet", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            // fade ReviewView out
         } else {
             // fade ReviewView out
         }
@@ -46,6 +51,11 @@ class ViewController: UIViewController, ReviewViewDelegate {
     func userDidReviewApp(response: Bool?) {
         if response == true {
             // open App Store
+            let alert = UIAlertController(title: "Alert", message: "Open App Store", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            // fade ReviewView out
         } else {
             // fade ReviewView out
         }

@@ -116,16 +116,15 @@ class ReviewView: UIView {
         self.titleLabel.text = "\(titleString) \(bundleName)?"
         
         // create review button container
-        self.reviewButtonContainer.frame = CGRectMake((self.frame.size.width - 253) / 2, (self.frame.height / 2) - 10, 253, 20)
+        self.reviewButtonContainer.frame = CGRectMake((self.frame.size.width - 253) / 2, (self.frame.height / 2) - 10, 253, 45)
         for var i = 0; i < 5; i++ {
             let x = i * 52
             let view = UIImageView()
-            view.frame = CGRectMake(CGFloat(x), 0, 43, 41)
+            view.frame = CGRectMake(CGFloat(x), 2, 43, 41)
             view.image = UIImage(named: "RatingStarOutline")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             view.tintColor = self.textColor
             view.tag = i
             view.userInteractionEnabled = true
-            view.backgroundColor = UIColor(white: 1, alpha: 0.01)
             
             let gesture = UITapGestureRecognizer(target: self, action: "didTapStar:")
             view.addGestureRecognizer(gesture)
@@ -134,8 +133,8 @@ class ReviewView: UIView {
         }
         
         // add all views to containerView
-        self.addSubview(self.titleLabel)
         self.addSubview(self.reviewButtonContainer)
+        self.addSubview(self.titleLabel)
     }
     
     // ----------------------------------------------------------------
@@ -145,14 +144,14 @@ class ReviewView: UIView {
         for var i = 0; i < sender.view!.tag + 1; i++ {
             let x = i * 52
             let view = UIImageView()
-            view.frame = CGRectMake(CGFloat(x), 0, 43, 41)
+            view.frame = CGRectMake(CGFloat(x), 2, 43, 41)
             view.image = UIImage(named: "RatingStarFill")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             view.tintColor = self.textColor
             self.reviewButtonContainer.addSubview(view)
             self.reviewButtonContainer.bringSubviewToFront(view)
         }
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(1400)))
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(1500)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             switch sender.view!.tag {
                 case 0:
@@ -177,9 +176,6 @@ class ReviewView: UIView {
     }
     
     @IBAction func didTapResponseButton(sender: UIButton) {
-        
-        print("didTapResponseButton = %i", sender.tag)
-        
         if self.style == .Default {
             switch sender.tag {
             case 0:
@@ -216,7 +212,7 @@ class ReviewView: UIView {
         let transition = CATransition()
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         transition.type = kCATransitionFade
-        transition.duration = 2
+        transition.duration = 1
         
         // animate title label
         self.titleLabel.layer.addAnimation(transition, forKey: kCATransitionFade)
