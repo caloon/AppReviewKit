@@ -1,17 +1,8 @@
 # AppReviewKit
 
-During the past years I realized that "traditional" prompts for rating apps do no longer work. App users are used to these prompts and close them immediately.
+During the past years I realized that "traditional" prompts for rating apps do no longer work. App users are used to these prompts and close them immediately. I believe this solution is better than generic UIAlert prompts because they do not interrupt the user's experience, instead the user him/herself decides to rate the app (pull instead of push).
 
-Thus, I developed an alternative solution to prompt your users to review or rate your app on the App Store. It does the following:
-- display an app rating view (5 outlined stars) above the app's settings
-- once the user taps one of the stars, the stars will be replaced by filled ones and a UIAlert prompt is displayed
-- if the user chooses 3-5 stars, the user will be asked to review, otherwise the user will be asked for feedback via email
-- the next time the app's settings are loaded, the rating view will no longer be displayed
-
-I believe this solution is better than generic UIAlert prompts because they do not interrupt the user's experience, instead the user him/herself decides to rate the app (pull instead of push).
-
-![alt tag](https://photos-2.dropbox.com/t/2/AADMNPRvAi0lpiwSl3y7Dpix3NKbiw1ET1Yv9s592Y20aw/12/48617349/png/32x32/1/1445176800/0/2/appreviewkit.png/CIWvlxcgASACIAcoAigH/F2A9p66JRt-q_aP6uvbkd0N2fP5gZ2P-KTyRZlcHJxc?size=1024x768&size_mode=2)
-
+![alt tag](http://s14.postimg.org/o2y1jl3sx/App_Review_Kit_Actions_Sketch.png)
 
 This project is a part of my soon to be released online courses on http://appstoreboosting.teachable.com/courses/app-store-reviews. The course will be for free. You can already enroll, please not though that I am still working on the content. If you enroll the course, you will be notified via email as soon as it is ready.
 
@@ -23,7 +14,8 @@ This project is a part of my soon to be released online courses on http://appsto
 
 #### Customization
 ##### Styles
-tbd - image
+
+![alt tag](http://s13.postimg.org/iaaeljcx3/App_Review_Kit_Styles_Sketch.png)
 
 ##### Further Customization
 ```
