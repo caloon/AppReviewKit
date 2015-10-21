@@ -4,33 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
+        <!--View Controller-->
         <scene sceneID="PWH-Zy-mrO">
             <objects>
                 <tableViewController id="asm-hs-8UQ" customClass="ViewController" customModule="AppReviewKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="i7I-qC-VUl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="defaultCell" id="Mka-VU-9bt">
-                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mka-VU-9bt" id="YxM-ZI-SLv">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </tableViewCellContentView>
-                                <animations/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="asm-hs-8UQ" id="e8L-zg-Ja8"/>
-                            <outlet property="delegate" destination="asm-hs-8UQ" id="7Um-o3-GVI"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="hQs-8w-8IP"/>
+                    <navigationItem key="navigationItem" title="View Controller" id="hQs-8w-8IP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZV-dh-tqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

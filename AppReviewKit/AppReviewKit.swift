@@ -40,6 +40,7 @@ class ReviewView: UIView {
     private var style: ReviewViewStyle?
     private var titleLabel = UILabel()
     private var reviewButtonContainer = UIView()
+    private var responseButtonContainer = UIView()
     
     
     // ----------------------------------------------------------------
@@ -74,7 +75,7 @@ class ReviewView: UIView {
         // create review button container
         self.reviewButtonContainer.frame = CGRectMake((self.frame.size.width - 220) / 2, (self.frame.height / 2), 220, 30)
         for var i = 0; i < 2; i++ {
-            let button = UIButton(type: .Custom)
+            let button = UIButton(type: .System)
             let x = i * 120
             button.frame = CGRectMake(CGFloat(x), 0, 100, 30)
             
@@ -117,13 +118,19 @@ class ReviewView: UIView {
         // create review button container
         self.reviewButtonContainer.frame = CGRectMake((self.frame.size.width - 253) / 2, (self.frame.height / 2) - 10, 253, 20)
         for var i = 0; i < 5; i++ {
-            let button = UIButton(type: .Custom)
             let x = i * 52
-            button.frame = CGRectMake(CGFloat(x), 0, 45, 45)
-            button.setImage(UIImage(named: "Settings-RatingStarOutline"), forState: .Normal)
-            button.tag = i
-            button.addTarget(self, action: "didTapResponseButton:", forControlEvents: .TouchUpInside)
-            self.reviewButtonContainer.addSubview(button)
+            let view = UIImageView()
+            view.frame = CGRectMake(CGFloat(x), 0, 43, 41)
+            view.image = UIImage(named: "RatingStarOutline")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+            view.tintColor = self.textColor
+            view.tag = i
+            view.userInteractionEnabled = true
+            view.backgroundColor = UIColor(white: 1, alpha: 0.01)
+            
+            let gesture = UITapGestureRecognizer(target: self, action: "didTapStar:")
+            view.addGestureRecognizer(gesture)
+            
+            self.reviewButtonContainer.addSubview(view)
         }
         
         // add all views to containerView
@@ -133,6 +140,42 @@ class ReviewView: UIView {
     
     // ----------------------------------------------------------------
     // MARK: - IBActions
+    @IBAction func didTapStar(sender: UITapGestureRecognizer) {
+        
+        for var i = 0; i < sender.view!.tag + 1; i++ {
+            let x = i * 52
+            let view = UIImageView()
+            view.frame = CGRectMake(CGFloat(x), 0, 43, 41)
+            view.image = UIImage(named: "RatingStarFill")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+            view.tintColor = self.textColor
+            self.reviewButtonContainer.addSubview(view)
+            self.reviewButtonContainer.bringSubviewToFront(view)
+        }
+        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(1400)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            switch sender.view!.tag {
+                case 0:
+                self.delegate?.userDidRespond(.OneStar)
+                self.fadeButtonContainerView("support")
+                case 1:
+                self.delegate?.userDidRespond(.TwoStars)
+                self.fadeButtonContainerView("support")
+                case 2:
+                self.delegate?.userDidRespond(.ThreeStars)
+                self.fadeButtonContainerView("rate")
+                case 3:
+                self.delegate?.userDidRespond(.FourStars)
+                self.fadeButtonContainerView("rate")
+                default:
+                self.delegate?.userDidRespond(.FiveStars)
+                self.fadeButtonContainerView("rate")
+            }
+        }
+        
+        
+    }
+    
     @IBAction func didTapResponseButton(sender: UIButton) {
         
         print("didTapResponseButton = %i", sender.tag)
@@ -144,42 +187,6 @@ class ReviewView: UIView {
                 self.fadeButtonContainerView("support")
             default:
                 self.delegate?.userDidRespond(.Satisfied)
-                self.fadeButtonContainerView("rate")
-            }
-        } else if self.style == .Stars {
-            
-            self.reviewButtonContainer = UIView()
-            self.reviewButtonContainer.frame = CGRectMake((self.frame.size.width - 253) / 2, (self.frame.height / 2) - 5, 253, 20)
-            // images with filled stars
-            for var i = 0; i < sender.tag; i++ {
-                let x = i * 52
-                let imageView = UIImageView(frame: CGRectMake(CGFloat(x), 0, 45, 45))
-                imageView.image = UIImage(named: "Settings-RatingStarFill")
-                self.reviewButtonContainer.addSubview(imageView)
-            }
-            // images with outline stars
-            for var i = sender.tag; i < 5; i++ {
-                let x = i * 52
-                let imageView = UIImageView(frame: CGRectMake(CGFloat(x), 0, 45, 45))
-                imageView.image = UIImage(named: "Settings-RatingStarOutline")
-                self.reviewButtonContainer.addSubview(imageView)
-            }
-            
-            switch sender.tag {
-            case 0:
-                self.delegate?.userDidRespond(.OneStar)
-                self.fadeButtonContainerView("support")
-            case 1:
-                self.delegate?.userDidRespond(.TwoStars)
-                self.fadeButtonContainerView("support")
-            case 2:
-                self.delegate?.userDidRespond(.ThreeStars)
-                self.fadeButtonContainerView("rate")
-            case 3:
-                self.delegate?.userDidRespond(.FourStars)
-                self.fadeButtonContainerView("rate")
-            default:
-                self.delegate?.userDidRespond(.FiveStars)
                 self.fadeButtonContainerView("rate")
             }
         }
@@ -209,7 +216,7 @@ class ReviewView: UIView {
         let transition = CATransition()
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         transition.type = kCATransitionFade
-        transition.duration = 0.75
+        transition.duration = 2
         
         // animate title label
         self.titleLabel.layer.addAnimation(transition, forKey: kCATransitionFade)
@@ -226,10 +233,17 @@ class ReviewView: UIView {
         for btn in self.reviewButtonContainer.subviews {
             btn.removeFromSuperview()
         }
+        for btn in self.responseButtonContainer.subviews {
+            btn.removeFromSuperview()
+        }
         for var i = 0; i < 2; i++ {
             let button = UIButton(type: .Custom)
             let x = i * 120
-            button.frame = CGRectMake(CGFloat(x), 0, 100, 30)
+            if self.style == .Default {
+                button.frame = CGRectMake(CGFloat(x), 0, 100, 30)
+            } else if self.style == .Stars {
+                button.frame = CGRectMake(CGFloat(x) + 17, 7, 100, 30)
+            }
             
             if i == 0 {
                 button.layer.backgroundColor = self.backgroundColor!.CGColor
@@ -265,5 +279,22 @@ class ReviewView: UIView {
     func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError?) {
         // ...
     }
+}
+
+
+
+// ----------------------------------------------------------------
+// - MARK: Subclass UIButton to enable touches on transparent areas
+
+class MYButton: UIButton {
+    
+    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+        if CGRectContainsPoint(self.frame, point) {
+            return self
+        } else {
+            return nil
+        }
+    }
     
 }
+
