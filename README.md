@@ -6,8 +6,6 @@ The following is my alternate solution. It is a subclass of UIView which can bas
 
 ![alt tag](http://s14.postimg.org/o2y1jl3sx/App_Review_Kit_Actions_Sketch.png)
 
-This project is a part of my soon to be released online courses on App Store Optimization and Online Marketing for developers. (The part on app ratings will be free: http://appstoreboosting.teachable.com/courses/app-store-reviews.) You can already enroll, please note though that I am still working on the content. If you enroll the course, you will be notified via email as soon as it's ready.
-
 ## Usage
 
 #### Install
