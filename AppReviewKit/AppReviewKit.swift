@@ -51,8 +51,59 @@ class ReviewView: UIView {
 
     init(frame: CGRect, style: ReviewViewStyle) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
+        
+        // set instance variables
         self.style = style
+        self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
+        
+        // creating the subviews
+        if self.style == .Default {
+            self.initDefaultView()
+        } else if self.style == .Stars {
+            self.initStarsView()
+        }
+    }
+    
+    init(frame: CGRect, style: ReviewViewStyle, textColor: UIColor?, backgroundColor: UIColor?) {
+        super.init(frame: frame)
+        
+        // set instance variables
+        if let txtclr = textColor {
+            self.textColor = txtclr
+        }
+        if let bgclr = backgroundColor {
+            self.backgroundColor = bgclr
+        } else {
+            self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
+        }
+        self.style = style
+        
+        
+        // creating the subviews
+        if self.style == .Default {
+            self.initDefaultView()
+        } else if self.style == .Stars {
+            self.initStarsView()
+        }
+    }
+    
+    init(frame: CGRect, style: ReviewViewStyle, textColor: UIColor?, backgroundColor: UIColor?, font: UIFont?) {
+        super.init(frame: frame)
+        
+        // set instance variables
+        if let txtclr = textColor {
+            self.textColor = txtclr
+        }
+        if let bgclr = backgroundColor {
+            self.backgroundColor = bgclr
+        } else {
+            self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
+        }
+        if let fnt = font {
+            self.font = fnt
+        }
+        self.style = style
+        
         
         // creating the subviews
         if self.style == .Default {
@@ -151,7 +202,7 @@ class ReviewView: UIView {
             self.reviewButtonContainer.bringSubviewToFront(view)
         }
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(1500)))
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(200000 * Double(1500)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             switch sender.view!.tag {
                 case 0:

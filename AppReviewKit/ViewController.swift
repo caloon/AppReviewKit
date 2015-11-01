@@ -19,7 +19,7 @@ class ViewController: UIViewController, ReviewViewDelegate, UIAlertViewDelegate 
         self.view.backgroundColor = UIColor.whiteColor()
         
         // review view
-        let reviewView = ReviewView(frame: CGRectMake(0, 64, self.view.frame.size.width, 165), style: .Default)
+        let reviewView = ReviewView(frame: CGRectMake(0, 64, self.view.frame.size.width, 165), style: .Stars)
         reviewView.delegate = self
         self.view.addSubview(reviewView)
     }
