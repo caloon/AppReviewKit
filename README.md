@@ -26,11 +26,11 @@ reviewView.delegate = self
 
 ![alt tag](http://s13.postimg.org/iaaeljcx3/App_Review_Kit_Styles_Sketch.png)
 
-##### Further Customization
+##### Initializers
 ```
-reviewView.textColor = UIColor.blackColor()
-reviewView.backgroundColor = UIColor.whiteColor()
-reviewView.font = UIFont.systemFontOfSize(15)
+init(frame: CGRect, style: ReviewViewStyle)
+init(frame: CGRect, style: ReviewViewStyle, textColor: UIColor?, backgroundColor: UIColor?)
+init(frame: CGRect, style: ReviewViewStyle, textColor: UIColor?, backgroundColor: UIColor?, font: UIFont?)
 ```
 
 #### Delegate
