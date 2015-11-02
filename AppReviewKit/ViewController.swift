@@ -29,7 +29,7 @@ class ViewController: UIViewController, ReviewViewDelegate, UIAlertViewDelegate 
     }
     
     // ---------------------------------------------------------------------------------------------------------
-    // MARK: - Table view delegate
+    // MARK: - Review view delegate
     
     func userDidRespond(response: ReviewViewResponse!) {
         // advice: log event with Flurry, Fabric, etc.
@@ -60,5 +60,4 @@ class ViewController: UIViewController, ReviewViewDelegate, UIAlertViewDelegate 
             // fade ReviewView out
         }
     }
-    
 }
