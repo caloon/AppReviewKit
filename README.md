@@ -71,4 +71,4 @@ Like AppReviewKit? Get us a beer ;-)
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NVFEEVXQSSM9S)
 
 ## License
-Feel free to use this source in any of your projects. If you'd like to acknowledge the author, feel free to link to www.caloon.co or https://medium.com/app-store-boosting.
+Feel free to use this source in any of your projects. If you'd like to acknowledge the author, feel free to link to www.caloon.co.
