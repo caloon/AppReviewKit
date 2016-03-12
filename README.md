@@ -19,6 +19,7 @@ self.view.addSubview(reviewView)
 ```
 reviewView.delegate = self
 ```
+- If you're using .Stars style, remember to copy the star icons into Images.xcassets
 - All set!
 
 #### Customization
