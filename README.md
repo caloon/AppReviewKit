@@ -30,8 +30,8 @@ reviewView.delegate = self
 ##### Initializers
 ```
 init(frame: CGRect, style: ReviewViewStyle)
-init(frame: CGRect, style: ReviewViewStyle, textColor: UIColor?, backgroundColor: UIColor?)
-init(frame: CGRect, style: ReviewViewStyle, textColor: UIColor?, backgroundColor: UIColor?, font: UIFont?)
+init(frame: CGRect, style: ReviewViewStyle, textColor: UIColor?, backgroundColor: UIColor?, buttonTintColor: UIColor?,)
+init(frame: CGRect, style: ReviewViewStyle, textColor: UIColor?, backgroundColor: UIColor?, buttonTintColor: UIColor?, font: UIFont?)
 ```
 
 #### Delegate
