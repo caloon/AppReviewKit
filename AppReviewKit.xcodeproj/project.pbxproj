@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D23A06F91BD5BA3B00BCB4D6 /* AppReviewKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23A06F81BD5BA3B00BCB4D6 /* AppReviewKit.swift */; settings = {ASSET_TAGS = (); }; };
+		D23A06F91BD5BA3B00BCB4D6 /* AppReviewKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23A06F81BD5BA3B00BCB4D6 /* AppReviewKit.swift */; };
 		D23A07001BD6C35C00BCB4D6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D23A07021BD6C35C00BCB4D6 /* Localizable.strings */; };
 		D2CCC3F01BD3AB6C009ECA51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCC3EF1BD3AB6C009ECA51 /* AppDelegate.swift */; };
 		D2CCC3F21BD3AB6C009ECA51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CCC3F11BD3AB6C009ECA51 /* ViewController.swift */; };
@@ -39,6 +39,8 @@
 		D23A06FB1BD6C2BA00BCB4D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D23A07011BD6C35C00BCB4D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D23A07031BD6C36700BCB4D6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D29E85D81CA5EC2100111D16 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D29E85D91CA6946800111D16 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D2CCC3EC1BD3AB6C009ECA51 /* AppReviewKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppReviewKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CCC3EF1BD3AB6C009ECA51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CCC3F11BD3AB6C009ECA51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,8 @@
 			knownRegions = (
 				en,
 				de,
+				fi,
+				"zh-Hans",
 			);
 			mainGroup = D2CCC3E31BD3AB6C009ECA51;
 			productRefGroup = D2CCC3ED1BD3AB6C009ECA51 /* Products */;
@@ -278,6 +282,8 @@
 			children = (
 				D23A07011BD6C35C00BCB4D6 /* en */,
 				D23A07031BD6C36700BCB4D6 /* de */,
+				D29E85D81CA5EC2100111D16 /* fi */,
+				D29E85D91CA6946800111D16 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

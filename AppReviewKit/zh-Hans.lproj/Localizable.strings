@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  AppReviewKit
+
+  Created by Josef Moser on 20/10/15.
+  Copyright © 2015 Josef Moser. All rights reserved.
+*/
+
+
+"Do you enjoy using %@?" = "您喜欢用%@这款应用软件吗?"; // App Name in the middle
+"How do you like %@?" = "您会如何评价%@这款应用软件？"; // App Name in the middle
+"Not really" = "仍需改进";
+"Yes, indeed" = "非常满意";
+"Do you mind telling us what we do wrong?" = "是否能请您告知我们仍需改进之处？";
+"Would you rate us on the App Store, then?" = "稍后是否能请您在App Store对我们的软件进行评分？";
+"No, thanks" = "不会，并不想";
+"Ok, sure" = "是的，没问题";

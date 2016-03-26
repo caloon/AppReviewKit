@@ -7,11 +7,11 @@
 */
 
 
-"Do you enjoy using" = "Gefällt dir";
-"How do you like" = "Wie gefällt dir";
+"Do you enjoy using %@?" = "Gefällt dir %@?";
+"How do you like %@?" = "Wie gefällt dir %@?";
 "Not really" = "Nein";
 "Yes, indeed" = "Ja, klar";
 "Do you mind telling us what we do wrong?" = "Oh. Sag uns, was wir falsch machen.";
-"Would you rate us on the App Store, then?" = "Toll. Bewerte uns doch im App Store.";
+"Would you rate us on the App Store, then?" = "Toll. Bitte sag's weiter und bewerte uns im App Store.";
 "No, thanks" = "Nein";
 "Ok, sure" = "Ja, klar";

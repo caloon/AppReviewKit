@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E3D2E5BE57B6AC99D72572AA7775478E0659D33C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2F83C86066F7992E9B272315128B7A7AF67B8F34" : 0,
+    "E3D2E5BE57B6AC99D72572AA7775478E0659D33C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "686263DB-D73E-4074-9774-389C5C015C0D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2F83C86066F7992E9B272315128B7A7AF67B8F34" : "..",
+    "E3D2E5BE57B6AC99D72572AA7775478E0659D33C" : "AppReviewKit\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AppReviewKit",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AppReviewKit.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/bitbucket.org\/caloon\/ios-reusables.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2F83C86066F7992E9B272315128B7A7AF67B8F34"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/caloon\/AppReviewKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E3D2E5BE57B6AC99D72572AA7775478E0659D33C"
+    }
+  ]
+}
