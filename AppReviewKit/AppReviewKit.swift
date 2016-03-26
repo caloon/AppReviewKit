@@ -243,7 +243,7 @@ class ReviewView: UIView {
             if self.style == .Default {
                 button.frame = CGRectMake(CGFloat(x), 0, 100, 30)
             } else if self.style == .Stars {
-                button.frame = CGRectMake(CGFloat(x) + 17, 7, 100, 30)
+                button.frame = CGRectMake(CGFloat(x) + 10, 5, 100, 30)
             }
             
             if i == 0 {
