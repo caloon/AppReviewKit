@@ -36,6 +36,7 @@ class ReviewView: UIView {
     // - MARK: Properties
     
     var textColor = UIColor.whiteColor()
+    var buttonTintColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
     var font = UIFont.systemFontOfSize(15)
     var delegate: ReviewViewDelegate?
     // var backgroundColor inherited from UIView
@@ -52,7 +53,7 @@ class ReviewView: UIView {
         fatalError("init(coder:) has not been implemented")
     } // required initializer...
 
-    init(frame: CGRect, style: ReviewViewStyle) { // , display: ReviewViewDisplay
+    init(frame: CGRect, style: ReviewViewStyle/*, display: ReviewViewDisplay, */ ) {
         super.init(frame: frame)
         
         // set instance variables
@@ -76,7 +77,7 @@ class ReviewView: UIView {
         self.alignViews(style, sender: "")
     }
     
-    init(frame: CGRect, style: ReviewViewStyle, display: ReviewViewDisplay, textColor: UIColor?, backgroundColor: UIColor?) {
+    init(frame: CGRect, style: ReviewViewStyle, /* display: ReviewViewDisplay, */ textColor: UIColor?, backgroundColor: UIColor?, buttonTintColor: UIColor?) {
         super.init(frame: frame)
         
         // set instance variables
@@ -85,6 +86,11 @@ class ReviewView: UIView {
         }
         if let bgclr = backgroundColor {
             self.backgroundColor = bgclr
+        } else {
+            self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
+        }
+        if let btnclr = buttonTintColor {
+            self.backgroundColor = btnclr
         } else {
             self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
         }
@@ -107,7 +113,7 @@ class ReviewView: UIView {
         self.alignViews(style, sender: "")
     }
     
-    init(frame: CGRect, style: ReviewViewStyle, textColor: UIColor?, backgroundColor: UIColor?, font: UIFont?) {
+    init(frame: CGRect, style: ReviewViewStyle, /* display: ReviewViewDisplay, */ textColor: UIColor?, backgroundColor: UIColor?, buttonTintColor: UIColor?, button font: UIFont?) {
         super.init(frame: frame)
         
         // set instance variables
@@ -116,6 +122,11 @@ class ReviewView: UIView {
         }
         if let bgclr = backgroundColor {
             self.backgroundColor = bgclr
+        } else {
+            self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
+        }
+        if let btnclr = buttonTintColor {
+            self.backgroundColor = btnclr
         } else {
             self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
         }
@@ -237,7 +248,7 @@ class ReviewView: UIView {
         for btn in self.responseButtonContainer.subviews {
             btn.removeFromSuperview()
         }
-        for var i = 0; i < 2; i++ {
+        for i in 0 ..< 2 {
             let button = UIButton(type: .Custom)
             let x = i * 120
             if self.style == .Default {
@@ -247,14 +258,14 @@ class ReviewView: UIView {
             }
             
             if i == 0 {
-                button.layer.backgroundColor = self.backgroundColor!.CGColor
+                button.layer.backgroundColor = self.buttonTintColor.CGColor
                 button.layer.borderColor = self.textColor.CGColor
                 button.setTitleColor(self.textColor, forState: .Normal)
                 button.setTitle(NSLocalizedString("No, thanks", comment: ""), forState: .Normal)
             } else if i == 1 {
                 button.layer.backgroundColor = self.textColor.CGColor
-                button.layer.borderColor = self.backgroundColor?.CGColor
-                button.setTitleColor(self.backgroundColor, forState: .Normal)
+                button.layer.borderColor = self.buttonTintColor.CGColor
+                button.setTitleColor(self.buttonTintColor, forState: .Normal)
                 button.setTitle(NSLocalizedString("Ok, sure", comment: ""), forState: .Normal)
             }
             
@@ -299,7 +310,7 @@ class ReviewView: UIView {
             if style == .Stars {
                 self.reviewButtonContainer.frame = CGRectMake((self.frame.width - 240) / 2, yAxisOriginForReviewButtons, 240, 38.0)
                 
-                for var i = 0; i < 5; i++ {
+                for i in 0 ..< 5 {
                     let x = i * 50
                     let view = UIImageView()
                     view.frame = CGRectMake(CGFloat(x), 2, 40, 38)
@@ -316,20 +327,20 @@ class ReviewView: UIView {
             } else {
                 self.reviewButtonContainer.frame = CGRectMake((self.frame.width - 220) / 2, yAxisOriginForReviewButtons, 220, 30.0)
                 
-                for var i = 0; i < 2; i++ {
+                for i in 0 ..< 2 {
                     let button = UIButton(type: .System)
                     let x = i * 120
                     button.frame = CGRectMake(CGFloat(x), 0, 100, 30)
                     
                     if i == 0 {
-                        button.layer.backgroundColor = self.backgroundColor!.CGColor
+                        button.layer.backgroundColor = self.buttonTintColor.CGColor
                         button.layer.borderColor = self.textColor.CGColor
                         button.setTitleColor(self.textColor, forState: .Normal)
                         button.setTitle(NSLocalizedString("Not really", comment: ""), forState: .Normal)
                     } else if i == 1 {
                         button.layer.backgroundColor = self.textColor.CGColor
-                        button.layer.borderColor = self.backgroundColor?.CGColor
-                        button.setTitleColor(self.backgroundColor, forState: .Normal)
+                        button.layer.borderColor = self.buttonTintColor.CGColor
+                        button.setTitleColor(self.buttonTintColor, forState: .Normal)
                         button.setTitle(NSLocalizedString("Yes, indeed", comment: ""), forState: .Normal)
                     }
                     
