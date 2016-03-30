@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  AppReviewKit
+
+  Created by Josef Moser on 20/10/15.
+  Copyright © 2015 Josef Moser. All rights reserved.
+*/
+
+
+"Do you enjoy using %@?" = "¿Disfrutas utilizar (my app)%@?";
+"How do you like %@?" = "¿Qué te gusta de %@?";
+"Not really" = "No realmente";
+"Yes, indeed" = "Sí, mucho";
+"Do you mind telling us what we do wrong?" = "¿Nos puedes decir qué podemos mejorar?";
+"Would you rate us on the App Store, then?" = "¿Nos puedes calificar en la App Store?";
+"No, thanks" = "No, gracias";
+"Ok, sure" = "¡Claro!";

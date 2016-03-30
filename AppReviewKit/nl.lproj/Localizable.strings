@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  AppReviewKit
+
+  Created by Josef Moser on 20/10/15.
+  Copyright © 2015 Josef Moser. All rights reserved.
+*/
+
+
+"Do you enjoy using %@?" = "Heeft u plezier in het gebruiken van %@?";
+"How do you like %@?" = "Wat vindt u van %@?";
+"Not really" = "Niet zo";
+"Yes, indeed" = "Ja, heel erg";
+"Do you mind telling us what we do wrong?" = "Wilt u ons vertellen wat we beter kunnen doen?";
+"Would you rate us on the App Store, then?" = "Zou je ons dat een rating geven in de App store?";
+"No, thanks" = "Nee, dank u";
+"Ok, sure" = "Natuurlijk";
