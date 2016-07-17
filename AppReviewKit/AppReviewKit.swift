@@ -35,13 +35,19 @@ class ReviewView: UIView {
     
     // - MARK: Properties
     
-    var textColor = UIColor.whiteColor()
-    var buttonTintColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
-    var font = UIFont.systemFontOfSize(15)
-    var delegate: ReviewViewDelegate?
-    // var backgroundColor inherited from UIView
+    var titleColor = UIColor.whiteColor()
+    var titleFont = UIFont.systemFontOfSize(15)
+    var primaryButtonTextColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
+    var primaryButtonFillColor = UIColor.whiteColor()
+    var primaryButtonFont = UIFont.systemFontOfSize(15)
+    var secondaryButtonTextColor = UIColor.whiteColor()
+    var secondaryButtonFillColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
+    var secondaryButtonFont = UIFont.systemFontOfSize(15)
     
-    private var style: ReviewViewStyle?
+    var delegate: ReviewViewDelegate?
+    
+    private var style: ReviewViewStyle = .Default
+    private var display: ReviewViewDisplay = .Inline
     private var titleLabel = UILabel()
     private var reviewButtonContainer = UIView()
     private var responseButtonContainer = UIView()
@@ -53,116 +59,49 @@ class ReviewView: UIView {
         fatalError("init(coder:) has not been implemented")
     } // required initializer...
 
-    init(frame: CGRect, style: ReviewViewStyle/*, display: ReviewViewDisplay, */ ) {
+    init(frame: CGRect, style: ReviewViewStyle/*, display: ReviewViewDisplay */) {
         super.init(frame: frame)
         
-        // set instance variables
         self.style = style
-        self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
-        
-        // set title lable and align subviews
-        self.titleLabel.numberOfLines = 2
-        self.titleLabel.font = self.font
-        self.titleLabel.textAlignment = .Center
-        self.titleLabel.textColor = self.textColor
-        
-        if style == .Stars {
-            let titleString =  String.localizedStringWithFormat(NSLocalizedString("How do you like %@?", comment: ""), NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String)
-            self.titleLabel.text = titleString
-        } else {
-            let titleString =  String.localizedStringWithFormat(NSLocalizedString("Do you enjoy using %@?", comment: ""), NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String)
-            self.titleLabel.text = titleString
-        }
-        
-        self.alignViews(style, sender: "")
+       // self.display = display
+        self.backgroundColor = self.primaryButtonTextColor
     }
     
-    init(frame: CGRect, style: ReviewViewStyle, /* display: ReviewViewDisplay, */ textColor: UIColor?, backgroundColor: UIColor?, buttonTintColor: UIColor?) {
-        super.init(frame: frame)
-        
-        // set instance variables
-        if let txtclr = textColor {
-            self.textColor = txtclr
+    func show () {
+        if self.display == .Inline {
+            
+            // set title lable and align subviews
+            self.titleLabel.numberOfLines = 2
+            self.titleLabel.font = self.titleFont
+            self.titleLabel.textAlignment = .Center
+            self.titleLabel.textColor = self.titleColor
+            
+            if style == .Stars {
+                let titleString =  String.localizedStringWithFormat(NSLocalizedString("How do you like %@?", comment: ""), NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String)
+                self.titleLabel.text = titleString
+            } else {
+                let titleString =  String.localizedStringWithFormat(NSLocalizedString("Do you enjoy using %@?", comment: ""), NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String)
+                self.titleLabel.text = titleString
+            }
+            
+            self.alignViews(self.style, sender: "")
+        } else if display == .Block {
+            
+            
+            
         }
-        if let bgclr = backgroundColor {
-            self.backgroundColor = bgclr
-        } else {
-            self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
-        }
-        if let btnclr = buttonTintColor {
-            self.backgroundColor = btnclr
-        } else {
-            self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
-        }
-        self.style = style
-        
-        // set title lable and align subviews
-        self.titleLabel.numberOfLines = 2
-        self.titleLabel.font = self.font
-        self.titleLabel.textAlignment = .Center
-        self.titleLabel.textColor = self.textColor
-        
-        if style == .Stars {
-            let titleString =  String.localizedStringWithFormat(NSLocalizedString("How do you like %@?", comment: ""), NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String)
-            self.titleLabel.text = titleString
-        } else {
-            let titleString =  String.localizedStringWithFormat(NSLocalizedString("Do you enjoy using %@?", comment: ""), NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String)
-            self.titleLabel.text = titleString
-        }
-        
-        self.alignViews(style, sender: "")
-    }
-    
-    init(frame: CGRect, style: ReviewViewStyle, /* display: ReviewViewDisplay, */ textColor: UIColor?, backgroundColor: UIColor?, buttonTintColor: UIColor?, button font: UIFont?) {
-        super.init(frame: frame)
-        
-        // set instance variables
-        if let txtclr = textColor {
-            self.textColor = txtclr
-        }
-        if let bgclr = backgroundColor {
-            self.backgroundColor = bgclr
-        } else {
-            self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
-        }
-        if let btnclr = buttonTintColor {
-            self.backgroundColor = btnclr
-        } else {
-            self.backgroundColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
-        }
-        if let fnt = font {
-            self.font = fnt
-        }
-        self.style = style
-        
-        
-        // set title lable and align subviews
-        self.titleLabel.numberOfLines = 2
-        self.titleLabel.font = self.font
-        self.titleLabel.textAlignment = .Center
-        self.titleLabel.textColor = self.textColor
-        
-        if style == .Stars {
-            let titleString =  String.localizedStringWithFormat(NSLocalizedString("How do you like %@?", comment: ""), NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String)
-            self.titleLabel.text = titleString
-        } else {
-            let titleString =  String.localizedStringWithFormat(NSLocalizedString("Do you enjoy using %@?", comment: ""), NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String)
-            self.titleLabel.text = titleString
-        }
-        
-        self.alignViews(style, sender: "")
     }
     
     // ----------------------------------------------------------------
     // MARK: - IBActions
     @IBAction func didTapStar(sender: UITapGestureRecognizer) {
         
-        for var i = 0; i < sender.view!.tag + 1; i++ {
+        for i in 0 ..< sender.view!.tag + 1 {
             let x = i * 50
             let view = UIImageView()
             view.frame = CGRectMake(CGFloat(x), 2, 40, 38)
             view.image = UIImage(named: "RatingStarFill")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-            view.tintColor = self.textColor
+            view.tintColor = self.titleColor
             self.reviewButtonContainer.addSubview(view)
             self.reviewButtonContainer.bringSubviewToFront(view)
         }
@@ -258,26 +197,26 @@ class ReviewView: UIView {
             }
             
             if i == 0 {
-                button.layer.backgroundColor = self.buttonTintColor.CGColor
-                button.layer.borderColor = self.textColor.CGColor
-                button.setTitleColor(self.textColor, forState: .Normal)
+                button.layer.backgroundColor = self.primaryButtonFillColor.CGColor
+                button.layer.borderColor = self.primaryButtonTextColor.CGColor
+                button.setTitleColor(self.primaryButtonTextColor, forState: .Normal)
                 button.setTitle(NSLocalizedString("No, thanks", comment: ""), forState: .Normal)
             } else if i == 1 {
-                button.layer.backgroundColor = self.textColor.CGColor
-                button.layer.borderColor = self.buttonTintColor.CGColor
-                button.setTitleColor(self.buttonTintColor, forState: .Normal)
+                button.layer.backgroundColor = self.secondaryButtonFillColor.CGColor
+                button.layer.borderColor = self.secondaryButtonTextColor.CGColor
+                button.setTitleColor(self.secondaryButtonTextColor, forState: .Normal)
                 button.setTitle(NSLocalizedString("Ok, sure", comment: ""), forState: .Normal)
             }
             
             button.layer.cornerRadius = 5
             button.layer.borderWidth = 1
-            button.titleLabel?.font = self.font
+            button.titleLabel?.font = self.titleFont
             
             button.tag = i
             if to == "support" {
-                button.addTarget(self, action: "didTapSupportButton:", forControlEvents: .TouchUpInside)
+                button.addTarget(self, action: #selector(ReviewView.didTapSupportButton(_:)), forControlEvents: .TouchUpInside)
             } else if to == "rate" {
-                button.addTarget(self, action: "didTapRateButton:", forControlEvents: .TouchUpInside)
+                button.addTarget(self, action: #selector(ReviewView.didTapRateButton(_:)), forControlEvents: .TouchUpInside)
             }
             
             self.alignViews(.Default, sender: "fadeButtonContainerView")
@@ -315,11 +254,11 @@ class ReviewView: UIView {
                     let view = UIImageView()
                     view.frame = CGRectMake(CGFloat(x), 2, 40, 38)
                     view.image = UIImage(named: "RatingStarOutline")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-                    view.tintColor = self.textColor
+                    view.tintColor = self.titleColor
                     view.tag = i
                     view.userInteractionEnabled = true
                     
-                    let gesture = UITapGestureRecognizer(target: self, action: "didTapStar:")
+                    let gesture = UITapGestureRecognizer(target: self, action: #selector(ReviewView.didTapStar(_:)))
                     view.addGestureRecognizer(gesture)
                     
                     self.reviewButtonContainer.addSubview(view)
@@ -333,23 +272,23 @@ class ReviewView: UIView {
                     button.frame = CGRectMake(CGFloat(x), 0, 100, 30)
                     
                     if i == 0 {
-                        button.layer.backgroundColor = self.buttonTintColor.CGColor
-                        button.layer.borderColor = self.textColor.CGColor
-                        button.setTitleColor(self.textColor, forState: .Normal)
+                        button.layer.backgroundColor = self.primaryButtonFillColor.CGColor
+                        button.layer.borderColor = self.primaryButtonTextColor.CGColor
+                        button.setTitleColor(self.primaryButtonTextColor, forState: .Normal)
                         button.setTitle(NSLocalizedString("Not really", comment: ""), forState: .Normal)
                     } else if i == 1 {
-                        button.layer.backgroundColor = self.textColor.CGColor
-                        button.layer.borderColor = self.buttonTintColor.CGColor
-                        button.setTitleColor(self.buttonTintColor, forState: .Normal)
+                        button.layer.backgroundColor = self.secondaryButtonFillColor.CGColor
+                        button.layer.borderColor = self.secondaryButtonTextColor.CGColor
+                        button.setTitleColor(self.secondaryButtonTextColor, forState: .Normal)
                         button.setTitle(NSLocalizedString("Yes, indeed", comment: ""), forState: .Normal)
                     }
                     
                     button.layer.cornerRadius = 5
                     button.layer.borderWidth = 1
-                    button.titleLabel?.font = self.font
+                    button.titleLabel?.font = self.titleFont
                     
                     button.tag = i
-                    button.addTarget(self, action: "didTapResponseButton:", forControlEvents: .TouchUpInside)
+                    button.addTarget(self, action: #selector(ReviewView.didTapResponseButton(_:)), forControlEvents: .TouchUpInside)
                     self.reviewButtonContainer.addSubview(button)
                 }
             }
@@ -383,7 +322,7 @@ class ReviewView: UIView {
         let label:UILabel = UILabel(frame: CGRectMake(0, 0, CGFloat(self.calculateLabelWidth(aLabel)), CGFloat.max))
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        label.font = self.font
+        label.font = self.titleFont
         label.text = aLabel.text
         
         label.sizeToFit()
@@ -400,7 +339,7 @@ class ReviewView: UIView {
             paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
             
             //Calculate the size of your UILabel by using the systemfont and the paragraph we created before. Edit the font and replace it with yours if you use another
-            let size = theText.sizeWithAttributes([NSFontAttributeName : self.font, NSParagraphStyleAttributeName : paragraph.copy()])
+            let size = theText.sizeWithAttributes([NSFontAttributeName : self.titleFont, NSParagraphStyleAttributeName : paragraph.copy()])
             
             if size.width > self.frame.width - 50 {
                 return 2
