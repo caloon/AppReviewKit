@@ -8,6 +8,8 @@ The following is my alternate solution. It is a subclass of UIView which can bas
 
 ## Usage
 
+CAUTION: Made several changes to API in commit #47
+
 #### Install
 - Copy the AppReviewKit.swift, Localizable.strings and Image files into your project
 - Add the ReviewView anywhere in your app (please note - it requires about 100pt in height)  
@@ -27,13 +29,24 @@ reviewView.delegate = self
 
 ![alt tag](http://s13.postimg.org/iaaeljcx3/App_Review_Kit_Styles_Sketch.png)
 
-##### Initializers
+##### Initializer
 ```
-init(frame: CGRect, style: ReviewViewStyle)
-init(frame: CGRect, style: ReviewViewStyle, textColor: UIColor?, backgroundColor: UIColor?, buttonTintColor: UIColor?,)
-init(frame: CGRect, style: ReviewViewStyle, textColor: UIColor?, backgroundColor: UIColor?, buttonTintColor: UIColor?, font: UIFont?)
+let reviewView = ReviewView(frame: CGRect, style: ReviewViewStyle)
+/* customize appearance */
+reviewView.show()
 ```
-
+#### Customize Appearance
+```
+reviewView.backgroundColor = ...
+reviewView.titleFont = ...
+reviewView.titleColor = ...
+reviewView.primaryButtonFont = ...
+reviewView.primaryButtonTextColor = ...
+reviewView.primaryButtonFillColor = ...
+reviewView.secondaryButtonFont = ...
+reviewView.secondaryButtonTextColor = ...
+reviewView.secondaryButtonFillColor = ...
+```
 #### Delegate
 ```
 func userDidRespond(response: ReviewViewResponse!) {
