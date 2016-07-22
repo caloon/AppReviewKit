@@ -23,7 +23,7 @@ enum ReviewViewResponse {
 
 // ----------------------------------------------------------------
 // - MARK: ReviewViewDelegate
-protocol ReviewViewDelegate {
+protocol ReviewViewDelegate : NSObjectProtocol {
     func userDidRespond(response: ReviewViewResponse!)
     func userDidContactSupport(response: Bool?)
     func userDidReviewApp(response: Bool?) // this only detects if the "rate me" button is clicked
