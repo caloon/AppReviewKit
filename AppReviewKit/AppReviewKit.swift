@@ -44,7 +44,7 @@ class ReviewView: UIView {
     var secondaryButtonFillColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
     var secondaryButtonFont = UIFont.systemFontOfSize(15)
     
-    var delegate: ReviewViewDelegate?
+    weak var delegate: ReviewViewDelegate?
     
     private var style: ReviewViewStyle = .Default
     private var display: ReviewViewDisplay = .Inline
