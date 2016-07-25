@@ -58,7 +58,7 @@ class ReviewView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     } // required initializer...
-
+    
     init(frame: CGRect, style: ReviewViewStyle/*, display: ReviewViewDisplay */) {
         super.init(frame: frame)
         
@@ -86,6 +86,9 @@ class ReviewView: UIView {
             
             self.alignViews(self.style, sender: "")
         } else if display == .Block {
+            
+            // color dark blue: 50 103 214
+            // color blue: 66 133 244
             
             
             
