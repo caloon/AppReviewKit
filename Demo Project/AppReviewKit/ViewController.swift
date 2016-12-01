@@ -16,13 +16,13 @@ class ViewController: UIViewController, ReviewViewDelegate, UIAlertViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
         // review view
-        let reviewView = ReviewView(frame: CGRectMake(0, 64, self.view.frame.size.width, 165), style: .Stars/*, display: .Inline*/)
+        let reviewView = ReviewView(frame: CGRect(x: 0, y: 64, width: self.view.frame.size.width, height: 165), style: .stars/*, display: .Inline*/)
         reviewView.delegate = self
-        reviewView.backgroundColor = UIColor.greenColor()
-        reviewView.secondaryButtonTextColor = UIColor.purpleColor()
+        reviewView.backgroundColor = UIColor.green
+        reviewView.secondaryButtonTextColor = UIColor.purple
         reviewView.show()
         self.view.addSubview(reviewView)
     }
@@ -34,16 +34,16 @@ class ViewController: UIViewController, ReviewViewDelegate, UIAlertViewDelegate 
     // ---------------------------------------------------------------------------------------------------------
     // MARK: - Review view delegate
     
-    func userDidRespond(response: ReviewViewResponse!) {
+    func userDidRespond(_ response: ReviewViewResponse!) {
         // advice: log event with Flurry, Fabric, etc.
     }
     
-    func userDidContactSupport(response: Bool?) {
+    func userDidContactSupport(_ response: Bool?) {
         if response == true {
             // open Support Contact sheet
-            let alert = UIAlertController(title: "Alert", message: "Open Support Contact sheet", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Alert", message: "Open Support Contact sheet", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             
             // fade ReviewView out
         } else {
@@ -51,12 +51,12 @@ class ViewController: UIViewController, ReviewViewDelegate, UIAlertViewDelegate 
         }
     }
     
-    func userDidReviewApp(response: Bool?) {
+    func userDidReviewApp(_ response: Bool?) {
         if response == true {
             // open App Store
-            let alert = UIAlertController(title: "Alert", message: "Open App Store", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Alert", message: "Open App Store", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             
             // fade ReviewView out
         } else {

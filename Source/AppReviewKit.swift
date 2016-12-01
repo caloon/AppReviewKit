@@ -12,21 +12,21 @@ import MessageUI
 // ----------------------------------------------------------------
 // - MARK: Enums
 enum ReviewViewStyle {
-    case Default, Stars
+    case `default`, stars
 }
 enum ReviewViewDisplay {
-    case Inline, Block
+    case inline, block
 }
 enum ReviewViewResponse {
-    case Dissatisfied, Satisfied, OneStar, TwoStars, ThreeStars, FourStars, FiveStars
+    case dissatisfied, satisfied, oneStar, twoStars, threeStars, fourStars, fiveStars
 }
 
 // ----------------------------------------------------------------
 // - MARK: ReviewViewDelegate
 protocol ReviewViewDelegate : NSObjectProtocol {
-    func userDidRespond(response: ReviewViewResponse!)
-    func userDidContactSupport(response: Bool?)
-    func userDidReviewApp(response: Bool?) // this only detects if the "rate me" button is clicked
+    func userDidRespond(_ response: ReviewViewResponse!)
+    func userDidContactSupport(_ response: Bool?)
+    func userDidReviewApp(_ response: Bool?) // this only detects if the "rate me" button is clicked
 }
 
 // ----------------------------------------------------------------
@@ -35,22 +35,22 @@ class ReviewView: UIView {
     
     // - MARK: Properties
     
-    var titleColor = UIColor.whiteColor()
-    var titleFont = UIFont.systemFontOfSize(15)
+    var titleColor = UIColor.white
+    var titleFont = UIFont.systemFont(ofSize: 15)
     var primaryButtonTextColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
-    var primaryButtonFillColor = UIColor.whiteColor()
-    var primaryButtonFont = UIFont.systemFontOfSize(15)
-    var secondaryButtonTextColor = UIColor.whiteColor()
+    var primaryButtonFillColor = UIColor.white
+    var primaryButtonFont = UIFont.systemFont(ofSize: 15)
+    var secondaryButtonTextColor = UIColor.white
     var secondaryButtonFillColor = UIColor(red: 59/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1.0)
-    var secondaryButtonFont = UIFont.systemFontOfSize(15)
+    var secondaryButtonFont = UIFont.systemFont(ofSize: 15)
     
     weak var delegate: ReviewViewDelegate?
     
-    private var style: ReviewViewStyle = .Default
-    private var display: ReviewViewDisplay = .Inline
-    private var titleLabel = UILabel()
-    private var reviewButtonContainer = UIView()
-    private var responseButtonContainer = UIView()
+    fileprivate var style: ReviewViewStyle = .default
+    fileprivate var display: ReviewViewDisplay = .inline
+    fileprivate var titleLabel = UILabel()
+    fileprivate var reviewButtonContainer = UIView()
+    fileprivate var responseButtonContainer = UIView()
     
     
     // ----------------------------------------------------------------
@@ -68,24 +68,24 @@ class ReviewView: UIView {
     }
     
     func show () {
-        if self.display == .Inline {
+        if self.display == .inline {
             
             // set title lable and align subviews
             self.titleLabel.numberOfLines = 2
             self.titleLabel.font = self.titleFont
-            self.titleLabel.textAlignment = .Center
+            self.titleLabel.textAlignment = .center
             self.titleLabel.textColor = self.titleColor
             
-            if style == .Stars {
-                let titleString =  String.localizedStringWithFormat(NSLocalizedString("How do you like %@?", comment: ""), NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String)
+            if style == .stars {
+                let titleString =  String.localizedStringWithFormat(NSLocalizedString("How do you like %@?", comment: ""), Bundle.main.infoDictionary!["CFBundleName"] as! String)
                 self.titleLabel.text = titleString
             } else {
-                let titleString =  String.localizedStringWithFormat(NSLocalizedString("Do you enjoy using %@?", comment: ""), NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String)
+                let titleString =  String.localizedStringWithFormat(NSLocalizedString("Do you enjoy using %@?", comment: ""), Bundle.main.infoDictionary!["CFBundleName"] as! String)
                 self.titleLabel.text = titleString
             }
             
             self.alignViews(self.style, sender: "")
-        } else if display == .Block {
+        } else if display == .block {
             
             // color dark blue: 50 103 214
             // color blue: 66 133 244
@@ -97,35 +97,35 @@ class ReviewView: UIView {
     
     // ----------------------------------------------------------------
     // MARK: - IBActions
-    @IBAction func didTapStar(sender: UITapGestureRecognizer) {
+    @IBAction func didTapStar(_ sender: UITapGestureRecognizer) {
         
         for i in 0 ..< sender.view!.tag + 1 {
             let x = i * 50
             let view = UIImageView()
-            view.frame = CGRectMake(CGFloat(x), 2, 40, 38)
-            view.image = UIImage(named: "RatingStarFill")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+            view.frame = CGRect(x: CGFloat(x), y: 2, width: 40, height: 38)
+            view.image = UIImage(named: "RatingStarFill")!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
             view.tintColor = self.titleColor
             self.reviewButtonContainer.addSubview(view)
-            self.reviewButtonContainer.bringSubviewToFront(view)
+            self.reviewButtonContainer.bringSubview(toFront: view)
         }
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(200000 * Double(1500)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+        let delayTime = DispatchTime.now() + Double(Int64(200000 * Double(1500))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
             switch sender.view!.tag {
                 case 0:
-                self.delegate?.userDidRespond(.OneStar)
+                self.delegate?.userDidRespond(.oneStar)
                 self.fadeButtonContainerView("support")
                 case 1:
-                self.delegate?.userDidRespond(.TwoStars)
+                self.delegate?.userDidRespond(.twoStars)
                 self.fadeButtonContainerView("support")
                 case 2:
-                self.delegate?.userDidRespond(.ThreeStars)
+                self.delegate?.userDidRespond(.threeStars)
                 self.fadeButtonContainerView("rate")
                 case 3:
-                self.delegate?.userDidRespond(.FourStars)
+                self.delegate?.userDidRespond(.fourStars)
                 self.fadeButtonContainerView("rate")
                 default:
-                self.delegate?.userDidRespond(.FiveStars)
+                self.delegate?.userDidRespond(.fiveStars)
                 self.fadeButtonContainerView("rate")
             }
         }
@@ -133,20 +133,20 @@ class ReviewView: UIView {
         
     }
     
-    @IBAction func didTapResponseButton(sender: UIButton) {
-        if self.style == .Default {
+    @IBAction func didTapResponseButton(_ sender: UIButton) {
+        if self.style == .default {
             switch sender.tag {
             case 0:
-                self.delegate?.userDidRespond(.Dissatisfied)
+                self.delegate?.userDidRespond(.dissatisfied)
                 self.fadeButtonContainerView("support")
             default:
-                self.delegate?.userDidRespond(.Satisfied)
+                self.delegate?.userDidRespond(.satisfied)
                 self.fadeButtonContainerView("rate")
             }
         }
     }
     
-    @IBAction func didTapSupportButton(sender: UIButton) {
+    @IBAction func didTapSupportButton(_ sender: UIButton) {
         if sender.tag == 0 {
             self.delegate?.userDidContactSupport(false)
         } else if sender.tag == 1 {
@@ -154,7 +154,7 @@ class ReviewView: UIView {
         }
     }
     
-    @IBAction func didTapRateButton(sender: UIButton) {
+    @IBAction func didTapRateButton(_ sender: UIButton) {
         if sender.tag == 0 {
             self.delegate?.userDidReviewApp(false)
         } else if sender.tag == 1 {
@@ -164,7 +164,7 @@ class ReviewView: UIView {
     
     // ----------------------------------------------------------------
     // MARK: - Methods
-    func fadeButtonContainerView(to: String) {
+    func fadeButtonContainerView(_ to: String) {
         
         // transition style
         let transition = CATransition()
@@ -173,17 +173,17 @@ class ReviewView: UIView {
         transition.duration = 1
         
         // animate title label
-        self.titleLabel.layer.addAnimation(transition, forKey: kCATransitionFade)
+        self.titleLabel.layer.add(transition, forKey: kCATransitionFade)
         if to == "support" {
             self.titleLabel.text = NSLocalizedString("Do you mind telling us what we do wrong?", comment: "")
         } else if to == "rate" {
             self.titleLabel.text = NSLocalizedString("Would you rate us on the App Store, then?", comment: "")
         }
         
-        self.titleLabel.layer.removeAnimationForKey(kCATransitionFade)
+        self.titleLabel.layer.removeAnimation(forKey: kCATransitionFade)
         
         // animate review button container
-        self.reviewButtonContainer.layer.addAnimation(transition, forKey: kCATransitionFade)
+        self.reviewButtonContainer.layer.add(transition, forKey: kCATransitionFade)
         for btn in self.reviewButtonContainer.subviews {
             btn.removeFromSuperview()
         }
@@ -191,24 +191,24 @@ class ReviewView: UIView {
             btn.removeFromSuperview()
         }
         for i in 0 ..< 2 {
-            let button = UIButton(type: .Custom)
+            let button = UIButton(type: .custom)
             let x = i * 120
-            if self.style == .Default {
-                button.frame = CGRectMake(CGFloat(x), 0, 100, 30)
-            } else if self.style == .Stars {
-                button.frame = CGRectMake(CGFloat(x) + 10, 5, 100, 30)
+            if self.style == .default {
+                button.frame = CGRect(x: CGFloat(x), y: 0, width: 100, height: 30)
+            } else if self.style == .stars {
+                button.frame = CGRect(x: CGFloat(x) + 10, y: 5, width: 100, height: 30)
             }
             
             if i == 0 {
-                button.layer.backgroundColor = self.primaryButtonFillColor.CGColor
-                button.layer.borderColor = self.primaryButtonTextColor.CGColor
-                button.setTitleColor(self.primaryButtonTextColor, forState: .Normal)
-                button.setTitle(NSLocalizedString("No, thanks", comment: ""), forState: .Normal)
+                button.layer.backgroundColor = self.primaryButtonFillColor.cgColor
+                button.layer.borderColor = self.primaryButtonTextColor.cgColor
+                button.setTitleColor(self.primaryButtonTextColor, for: UIControlState())
+                button.setTitle(NSLocalizedString("No, thanks", comment: ""), for: UIControlState())
             } else if i == 1 {
-                button.layer.backgroundColor = self.secondaryButtonFillColor.CGColor
-                button.layer.borderColor = self.secondaryButtonTextColor.CGColor
-                button.setTitleColor(self.secondaryButtonTextColor, forState: .Normal)
-                button.setTitle(NSLocalizedString("Ok, sure", comment: ""), forState: .Normal)
+                button.layer.backgroundColor = self.secondaryButtonFillColor.cgColor
+                button.layer.borderColor = self.secondaryButtonTextColor.cgColor
+                button.setTitleColor(self.secondaryButtonTextColor, for: UIControlState())
+                button.setTitle(NSLocalizedString("Ok, sure", comment: ""), for: UIControlState())
             }
             
             button.layer.cornerRadius = 5
@@ -217,19 +217,19 @@ class ReviewView: UIView {
             
             button.tag = i
             if to == "support" {
-                button.addTarget(self, action: #selector(ReviewView.didTapSupportButton(_:)), forControlEvents: .TouchUpInside)
+                button.addTarget(self, action: #selector(ReviewView.didTapSupportButton(_:)), for: .touchUpInside)
             } else if to == "rate" {
-                button.addTarget(self, action: #selector(ReviewView.didTapRateButton(_:)), forControlEvents: .TouchUpInside)
+                button.addTarget(self, action: #selector(ReviewView.didTapRateButton(_:)), for: .touchUpInside)
             }
             
-            self.alignViews(.Default, sender: "fadeButtonContainerView")
+            self.alignViews(.default, sender: "fadeButtonContainerView")
             
             self.reviewButtonContainer.addSubview(button)
         }
-        self.reviewButtonContainer.layer.removeAnimationForKey(kCATransitionFade)
+        self.reviewButtonContainer.layer.removeAnimation(forKey: kCATransitionFade)
     }
     
-    func alignViews(style: ReviewViewStyle, sender: String) {
+    func alignViews(_ style: ReviewViewStyle, sender: String) {
         
         var totalHeight: CGFloat?
         
@@ -246,20 +246,20 @@ class ReviewView: UIView {
         var yAxisOriginForTitleLabel = (self.frame.size.height - totalHeight!) / 2
         yAxisOriginForTitleLabel += 10 /* padding top */
         
-        self.titleLabel.frame = CGRectMake((self.frame.size.width - labelWidth) / 2, yAxisOriginForTitleLabel, labelWidth, labelHeight)
+        self.titleLabel.frame = CGRect(x: (self.frame.size.width - labelWidth) / 2, y: yAxisOriginForTitleLabel, width: labelWidth, height: labelHeight)
         
         if sender != "fadeButtonContainerView" {
-            if style == .Stars {
-                self.reviewButtonContainer.frame = CGRectMake((self.frame.width - 240) / 2, yAxisOriginForReviewButtons, 240, 38.0)
+            if style == .stars {
+                self.reviewButtonContainer.frame = CGRect(x: (self.frame.width - 240) / 2, y: yAxisOriginForReviewButtons, width: 240, height: 38.0)
                 
                 for i in 0 ..< 5 {
                     let x = i * 50
                     let view = UIImageView()
-                    view.frame = CGRectMake(CGFloat(x), 2, 40, 38)
-                    view.image = UIImage(named: "RatingStarOutline")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+                    view.frame = CGRect(x: CGFloat(x), y: 2, width: 40, height: 38)
+                    view.image = UIImage(named: "RatingStarOutline")!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
                     view.tintColor = self.titleColor
                     view.tag = i
-                    view.userInteractionEnabled = true
+                    view.isUserInteractionEnabled = true
                     
                     let gesture = UITapGestureRecognizer(target: self, action: #selector(ReviewView.didTapStar(_:)))
                     view.addGestureRecognizer(gesture)
@@ -267,23 +267,23 @@ class ReviewView: UIView {
                     self.reviewButtonContainer.addSubview(view)
                 }
             } else {
-                self.reviewButtonContainer.frame = CGRectMake((self.frame.width - 220) / 2, yAxisOriginForReviewButtons, 220, 30.0)
+                self.reviewButtonContainer.frame = CGRect(x: (self.frame.width - 220) / 2, y: yAxisOriginForReviewButtons, width: 220, height: 30.0)
                 
                 for i in 0 ..< 2 {
-                    let button = UIButton(type: .System)
+                    let button = UIButton(type: .system)
                     let x = i * 120
-                    button.frame = CGRectMake(CGFloat(x), 0, 100, 30)
+                    button.frame = CGRect(x: CGFloat(x), y: 0, width: 100, height: 30)
                     
                     if i == 0 {
-                        button.layer.backgroundColor = self.primaryButtonFillColor.CGColor
-                        button.layer.borderColor = self.primaryButtonTextColor.CGColor
-                        button.setTitleColor(self.primaryButtonTextColor, forState: .Normal)
-                        button.setTitle(NSLocalizedString("Not really", comment: ""), forState: .Normal)
+                        button.layer.backgroundColor = self.primaryButtonFillColor.cgColor
+                        button.layer.borderColor = self.primaryButtonTextColor.cgColor
+                        button.setTitleColor(self.primaryButtonTextColor, for: UIControlState())
+                        button.setTitle(NSLocalizedString("Not really", comment: ""), for: UIControlState())
                     } else if i == 1 {
-                        button.layer.backgroundColor = self.secondaryButtonFillColor.CGColor
-                        button.layer.borderColor = self.secondaryButtonTextColor.CGColor
-                        button.setTitleColor(self.secondaryButtonTextColor, forState: .Normal)
-                        button.setTitle(NSLocalizedString("Yes, indeed", comment: ""), forState: .Normal)
+                        button.layer.backgroundColor = self.secondaryButtonFillColor.cgColor
+                        button.layer.borderColor = self.secondaryButtonTextColor.cgColor
+                        button.setTitleColor(self.secondaryButtonTextColor, for: UIControlState())
+                        button.setTitle(NSLocalizedString("Yes, indeed", comment: ""), for: UIControlState())
                     }
                     
                     button.layer.cornerRadius = 5
@@ -291,7 +291,7 @@ class ReviewView: UIView {
                     button.titleLabel?.font = self.titleFont
                     
                     button.tag = i
-                    button.addTarget(self, action: #selector(ReviewView.didTapResponseButton(_:)), forControlEvents: .TouchUpInside)
+                    button.addTarget(self, action: #selector(ReviewView.didTapResponseButton(_:)), for: .touchUpInside)
                     self.reviewButtonContainer.addSubview(button)
                 }
             }
@@ -304,14 +304,14 @@ class ReviewView: UIView {
         
     }
     
-    func calculateLabelWidth(label:UILabel)->Float{
+    func calculateLabelWidth(_ label:UILabel)->Float{
         if let text = label.text {
             let theLabel = UILabel()
             theLabel.text = text
             theLabel.sizeToFit()
             
             var width = round(theLabel.frame.size.width)
-            if width % 2 != 0 {
+            if width.truncatingRemainder(dividingBy: 2) != 0 {
                 width += 1
             }
             
@@ -321,10 +321,10 @@ class ReviewView: UIView {
         return 0
     }
     
-    func calculateLabelHeight(aLabel:UILabel)->Float{
-        let label:UILabel = UILabel(frame: CGRectMake(0, 0, CGFloat(self.calculateLabelWidth(aLabel)), CGFloat.max))
+    func calculateLabelHeight(_ aLabel:UILabel)->Float{
+        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat(self.calculateLabelWidth(aLabel)), height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = self.titleFont
         label.text = aLabel.text
         
@@ -332,17 +332,17 @@ class ReviewView: UIView {
         return Float(label.frame.height)
     }
     
-    func countLabelLines(label:UILabel)->Int{
+    func countLabelLines(_ label:UILabel)->Int{
         if let text = label.text{
             // cast text to NSString so we can use sizeWithAttributes
             let theText = text as NSString
             //A Paragraph that we use to set the lineBreakMode.
             let paragraph = NSMutableParagraphStyle()
             //Set the lineBreakMode to wordWrapping
-            paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            paragraph.lineBreakMode = NSLineBreakMode.byWordWrapping
             
             //Calculate the size of your UILabel by using the systemfont and the paragraph we created before. Edit the font and replace it with yours if you use another
-            let size = theText.sizeWithAttributes([NSFontAttributeName : self.titleFont, NSParagraphStyleAttributeName : paragraph.copy()])
+            let size = theText.size(attributes: [NSFontAttributeName : self.titleFont, NSParagraphStyleAttributeName : paragraph.copy()])
             
             if size.width > self.frame.width - 50 {
                 return 2
@@ -357,7 +357,7 @@ class ReviewView: UIView {
     // ----------------------------------------------------------------
     // MARK: - MFMailComposeViewControllerDelegate
     
-    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError?) {
+    func mailComposeController(_ controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError?) {
         // ...
     }
 }
@@ -369,8 +369,8 @@ class ReviewView: UIView {
 
 class MYButton: UIButton {
     
-    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-        if CGRectContainsPoint(self.frame, point) {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if self.frame.contains(point) {
             return self
         } else {
             return nil

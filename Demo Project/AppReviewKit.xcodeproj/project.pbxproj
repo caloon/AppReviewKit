@@ -16,23 +16,6 @@
 		D2CCC3FA1BD3AB6C009ECA51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CCC3F81BD3AB6C009ECA51 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D2CCC4011BD3AB6C009ECA51 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2CCC3E41BD3AB6C009ECA51 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D2CCC3EB1BD3AB6C009ECA51;
-			remoteInfo = AppReviewKit;
-		};
-		D2CCC40C1BD3AB6D009ECA51 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2CCC3E41BD3AB6C009ECA51 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D2CCC3EB1BD3AB6C009ECA51;
-			remoteInfo = AppReviewKit;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		D23A06FA1BD6C2BA00BCB4D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D23A06FB1BD6C2BA00BCB4D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,26 +35,10 @@
 		D2CCC3F11BD3AB6C009ECA51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D2CCC3F61BD3AB6C009ECA51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2CCC3FB1BD3AB6C009ECA51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2CCC4001BD3AB6C009ECA51 /* AppReviewKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppReviewKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2CCC40B1BD3AB6D009ECA51 /* AppReviewKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppReviewKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D2CCC3E91BD3AB6C009ECA51 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2CCC3FD1BD3AB6C009ECA51 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2CCC4081BD3AB6D009ECA51 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -93,8 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				D2CCC3EC1BD3AB6C009ECA51 /* AppReviewKit.app */,
-				D2CCC4001BD3AB6C009ECA51 /* AppReviewKitTests.xctest */,
-				D2CCC40B1BD3AB6D009ECA51 /* AppReviewKitUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,42 +99,6 @@
 			productReference = D2CCC3EC1BD3AB6C009ECA51 /* AppReviewKit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D2CCC3FF1BD3AB6C009ECA51 /* AppReviewKitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D2CCC4171BD3AB6D009ECA51 /* Build configuration list for PBXNativeTarget "AppReviewKitTests" */;
-			buildPhases = (
-				D2CCC3FC1BD3AB6C009ECA51 /* Sources */,
-				D2CCC3FD1BD3AB6C009ECA51 /* Frameworks */,
-				D2CCC3FE1BD3AB6C009ECA51 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D2CCC4021BD3AB6C009ECA51 /* PBXTargetDependency */,
-			);
-			name = AppReviewKitTests;
-			productName = AppReviewKitTests;
-			productReference = D2CCC4001BD3AB6C009ECA51 /* AppReviewKitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D2CCC40A1BD3AB6D009ECA51 /* AppReviewKitUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D2CCC41A1BD3AB6D009ECA51 /* Build configuration list for PBXNativeTarget "AppReviewKitUITests" */;
-			buildPhases = (
-				D2CCC4071BD3AB6D009ECA51 /* Sources */,
-				D2CCC4081BD3AB6D009ECA51 /* Frameworks */,
-				D2CCC4091BD3AB6D009ECA51 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D2CCC40D1BD3AB6D009ECA51 /* PBXTargetDependency */,
-			);
-			name = AppReviewKitUITests;
-			productName = AppReviewKitUITests;
-			productReference = D2CCC40B1BD3AB6D009ECA51 /* AppReviewKitUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -181,14 +110,7 @@
 				TargetAttributes = {
 					D2CCC3EB1BD3AB6C009ECA51 = {
 						CreatedOnToolsVersion = 7.0.1;
-					};
-					D2CCC3FF1BD3AB6C009ECA51 = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = D2CCC3EB1BD3AB6C009ECA51;
-					};
-					D2CCC40A1BD3AB6D009ECA51 = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = D2CCC3EB1BD3AB6C009ECA51;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -214,8 +136,6 @@
 			projectRoot = "";
 			targets = (
 				D2CCC3EB1BD3AB6C009ECA51 /* AppReviewKit */,
-				D2CCC3FF1BD3AB6C009ECA51 /* AppReviewKitTests */,
-				D2CCC40A1BD3AB6D009ECA51 /* AppReviewKitUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -232,20 +152,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2CCC3FE1BD3AB6C009ECA51 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2CCC4091BD3AB6D009ECA51 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -259,34 +165,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2CCC3FC1BD3AB6C009ECA51 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2CCC4071BD3AB6D009ECA51 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D2CCC4021BD3AB6C009ECA51 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D2CCC3EB1BD3AB6C009ECA51 /* AppReviewKit */;
-			targetProxy = D2CCC4011BD3AB6C009ECA51 /* PBXContainerItemProxy */;
-		};
-		D2CCC40D1BD3AB6D009ECA51 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D2CCC3EB1BD3AB6C009ECA51 /* AppReviewKit */;
-			targetProxy = D2CCC40C1BD3AB6D009ECA51 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D23A07021BD6C35C00BCB4D6 /* Localizable.strings */ = {
@@ -416,6 +295,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.caloon.AppReviewKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -428,55 +308,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.caloon.AppReviewKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		D2CCC4181BD3AB6D009ECA51 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AppReviewKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caloon.AppReviewKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppReviewKit.app/AppReviewKit";
-			};
-			name = Debug;
-		};
-		D2CCC4191BD3AB6D009ECA51 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AppReviewKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caloon.AppReviewKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppReviewKit.app/AppReviewKit";
-			};
-			name = Release;
-		};
-		D2CCC41B1BD3AB6D009ECA51 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = AppReviewKitUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caloon.AppReviewKitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = AppReviewKit;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		D2CCC41C1BD3AB6D009ECA51 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = AppReviewKitUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caloon.AppReviewKitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = AppReviewKit;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -497,24 +330,6 @@
 			buildConfigurations = (
 				D2CCC4151BD3AB6D009ECA51 /* Debug */,
 				D2CCC4161BD3AB6D009ECA51 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D2CCC4171BD3AB6D009ECA51 /* Build configuration list for PBXNativeTarget "AppReviewKitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D2CCC4181BD3AB6D009ECA51 /* Debug */,
-				D2CCC4191BD3AB6D009ECA51 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D2CCC41A1BD3AB6D009ECA51 /* Build configuration list for PBXNativeTarget "AppReviewKitUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D2CCC41B1BD3AB6D009ECA51 /* Debug */,
-				D2CCC41C1BD3AB6D009ECA51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
