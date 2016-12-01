@@ -9,6 +9,7 @@ The following is my alternate solution. It is a subclass of UIView which can bas
 ## Usage
 
 CAUTION: Made several changes to API in commit #47
+Requires Swift 3. Last stable Swift 2 version: a1e013c
 
 #### Install
 - Copy the AppReviewKit.swift, Localizable.strings and Image files into your project
