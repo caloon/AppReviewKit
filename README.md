@@ -76,13 +76,17 @@ func userDidContactSupport(response: Bool?) {
 }
 ```
 
+## Author
 
+AppReviewKit was created by Josef Moser. I am an independent software developer and co-founder of [Cora Health](https://www.cora.health/) and [Cryptoradar](https://cryptoradar.co).
+
+Find me on: [Github](https://github.com/caloon/) or [Twitter](https://twitter.com/josef_moser)
 
 ## Contribution
-Contributions are encouraged and possible by opening issues and pull requests.
 
-If you like my content, please consider supporting what I do: https://www.buymeacoffee.com/caloon
-
+We welcome contribution to this project by opening issues or pull request.
 
 ## License
-Feel free to use this source in any of your projects. If you'd like to acknowledge the author, feel free to link to www.caloon.co.
+
+EmailOctopusKit is available under the MIT license. See the LICENSE file for more info.
+If you'd like to acknowledge the author of AppReviewKit, please set a link to this GitHub page.
