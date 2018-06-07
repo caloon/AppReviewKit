@@ -88,5 +88,5 @@ We welcome contribution to this project by opening issues or pull request.
 
 ## License
 
-EmailOctopusKit is available under the MIT license. See the LICENSE file for more info.
+AppReviewKit is available under the MIT license. See the LICENSE file for more info.
 If you'd like to acknowledge the author of AppReviewKit, please set a link to this GitHub page.
